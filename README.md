@@ -1,1 +1,1 @@
-# bertoti
+Comentário do Slide 57: No slide, é destacada a importância de construir o produto de acordo com o valor que foi definido pelo cliente, ao longo das Sprints. Nesse contexto, entregar partes do produto que não têm funcionalidade plena não pode ser considerado uma entrega real. No entanto, ao entregar protótipos que, embora não sejam idênticos ao produto final, resolvem de forma eficaz o problema do cliente, conseguimos entregar valor real e, ao final, o produto completo estará de acordo com a ideia original.
