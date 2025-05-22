@@ -19,3 +19,125 @@ Este trecho propõe que a engenharia de software não se limita à escrita de c�
 
 ## Comentário do **Slide 57**
 No slide 57, é enfatizado que a construção do produto deve estar alinhada com o valor definido pelo cliente ao longo das Sprints. Nesse contexto, a entrega de partes do produto sem funcionalidade plena não pode ser considerada uma entrega real. No entanto, ao fornecer protótipos que, mesmo não sendo idênticos ao produto final, resolvem eficazmente o problema do cliente, é possível entregar valor real. Ao final, o produto completo estará conforme a ideia original.
+
+---
+
+```
+package cadastro_livro;
+
+public class Livro {
+    private int id;
+    private String titulo;
+    private String autor;
+
+    public Livro(int id, String titulo, String autor) {
+        this.id = id;
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Título: " + titulo + ", Autor: " + autor;
+    }
+}
+```
+
+
+
+```
+package cadastro_livro;
+
+import java.util.List;
+import java.util.LinkedList;
+
+public class Biblioteca {
+    private List<Livro> livros = new LinkedList<>();
+
+    public void adicionarLivro(Livro novoLivro) {
+        livros.add(novoLivro);
+    }
+
+    public Livro buscarPorId(int id) {
+        for (Livro livro : livros) {
+            if (livro.getId() == id) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
+    public List<Livro> buscarPorTitulo(String titulo) {
+        List<Livro> encontrados = new LinkedList<>();
+        for (Livro livro : livros) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+                encontrados.add(livro);
+            }
+        }
+        return encontrados;
+    }
+
+    public List<Livro> getLivros() {
+        return livros;
+    }
+}
+```
+
+
+
+```
+package cadastro_livro;
+
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca();
+
+        Livro livro1 = new Livro(1, "O Senhor dos Anéis", "J.R.R. Tolkien");
+        Livro livro2 = new Livro(2, "1984", "George Orwell");
+        Livro livro3 = new Livro(3, "O Senhor dos Anéis", "J.R.R. Tolkien");
+
+        biblioteca.adicionarLivro(livro1);
+        biblioteca.adicionarLivro(livro2);
+        biblioteca.adicionarLivro(livro3);
+
+        Livro livroBuscadoID = biblioteca.buscarPorId(2);
+        if (livroBuscadoID != null) {
+            System.out.println("Livro encontrado pelo ID: " + livroBuscadoID);
+        } else {
+            System.out.println("Livro não encontrado pelo ID.");
+        }
+
+        List<Livro> livrosEncontrados = biblioteca.buscarPorTitulo("O Senhor dos Anéis");
+        System.out.println("Livros encontrados pelo título 'O Senhor dos Anéis':");
+        for (Livro livro : livrosEncontrados) {
+            System.out.println(livro);
+        }
+    }
+}
+```
