@@ -136,7 +136,7 @@ public class Main {
         List<Livro> livrosEncontrados = biblioteca.buscarPorTitulo("O Senhor dos Anéis");
         System.out.println("Livros encontrados pelo título 'O Senhor dos Anéis':");
         for (Livro livro : livrosEncontrados) {
-            System.out.println(livro);
+            System.out.println(livro)
         }
     }
 }
