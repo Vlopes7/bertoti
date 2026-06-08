@@ -1,5 +1,5 @@
 package padrao;
 
-public class observer {
+public interface Observer {
     void atualizar(String noticia);
 }

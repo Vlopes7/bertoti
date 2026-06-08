@@ -13,3 +13,5 @@ public class Main {
         canal.setNovaNoticia("O sistema backend foi atualizado com sucesso!");
     }
 }
+
+// Padrão Observer: Baixo acoplamento, pois a classe CanalNoticias não precisa ser alterada quando novos tipos de assinantes são criados
